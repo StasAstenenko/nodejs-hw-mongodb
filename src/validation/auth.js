@@ -23,3 +23,14 @@ export const loginUserValidationScheme = Joi.object({
     'any.required': 'Password is required',
   }),
 });
+
+export const requestResetAuthScheme = Joi.object({
+  email: Joi.string().email().required().messages({
+    'any.required': 'Email is required',
+  }),
+});
+
+export const resetPasswordScheme = Joi.object({
+  password: Joi.string().required(),
+  token: Joi.string().required(),
+});
