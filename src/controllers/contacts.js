@@ -48,6 +48,14 @@ export const getContactController = async (req, res, next) => {
 };
 
 export const createContactController = async (req, res) => {
+  const photo = req.file;
+
+  let photoUrl;
+
+  if (photo) {
+    photoUrl = await saveFileToUploadDir(photo);
+  }
+
   const contact = {
     name: req.body.name,
     phoneNumber: req.body.phoneNumber,
@@ -55,6 +63,7 @@ export const createContactController = async (req, res) => {
     isFavourite: req.body.isFavourite,
     contactType: req.body.contactType,
     userId: req.user._id,
+    photo: photoUrl,
   };
 
   const result = await createContact(contact);

@@ -27,16 +27,16 @@ contactsRouter.get('/:contactId', isValidId, ctrlWrapper(getContactController));
 
 contactsRouter.post(
   '/',
-  jsonParser,
   upload.single('photo'),
+  jsonParser,
   validateBody(contactsValidationScheme),
   ctrlWrapper(createContactController),
 );
 
 contactsRouter.patch(
   '/:contactId',
-  jsonParser,
   upload.single('photo'),
+  jsonParser,
   isValidId,
   validateBody(contactsValidationSchemeForPatch),
   ctrlWrapper(updateContactController),

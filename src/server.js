@@ -15,6 +15,8 @@ const PORT = Number(process.env.PORT);
 export const setupServer = () => {
   const app = express();
 
+  app.use('/auth/uploads', express.static(UPLOAD_DIR));
+
   app.use(
     pino({
       transport: {
@@ -32,8 +34,6 @@ export const setupServer = () => {
   });
 
   app.use(router);
-
-  app.use('/uploads', express.static(UPLOAD_DIR));
 
   app.use(notFoundHandler);
 
