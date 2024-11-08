@@ -1,4 +1,4 @@
-# swagger/paths/studens/{id}/patch.yaml
+# swagger/paths/contacts/{id}/patch.yaml
 tags:
   - Contacts
 summary: Patch contact by id

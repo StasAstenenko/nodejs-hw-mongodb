@@ -1,6 +1,7 @@
+# swagger/paths/contacts/put.yaml
 tags:
   - Contacts
-summary: Create contact by id
+summary: Create contact
 operationId: createContact
 description: 'Create a contact with payload'
 security:
@@ -14,7 +15,6 @@ requestBody:
           - name
           - phoneNumber
           - contactType
-          - userId
         properties:
           name:
             description: "Contact's name"
@@ -23,27 +23,27 @@ requestBody:
           phoneNumber:
             description: "Contact's number"
             type: string
-            example: '3807777777'
+            example: '380979602725'
           email:
-            description: "Contact's mail"
+            description: "Contact's email"
             type: string
-            example: 'john.doe@gmail.com'
+            example: 'johnDoe@gmail.com'
           isFavourite:
-            description: "Contact's favorite"
+            description: 'Whether is student on duty'
             type: boolean
-            example: true
+            example: false
           contactType:
-            description: 'Type of contact'
+            description: "Contact's email"
             type: string
             enum: ['work', 'home', 'personal']
-            example: 'personal'
           photo:
             description: "Contact's photo"
             type: string
             format: binary
+            default: null
 responses:
-  '200':
-    description: 'Get contact by id'
+  '201':
+    description: Creates a contact
     content:
       application/json:
         schema:
@@ -55,10 +55,10 @@ responses:
           properties:
             status:
               type: integer
-              example: 200
+              example: 201
             message:
               type: string
-              example: Successfully found contact with id 65ca67e7ae7f10c88b598384!
+              example: Successfully created a contact!
             data:
               type: object
               $ref: '../../components/schemas/contact.yaml'

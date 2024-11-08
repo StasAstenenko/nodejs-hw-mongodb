@@ -1,4 +1,4 @@
-# swagger/paths/studens/{id}/get.yaml
+# swagger/paths/contacts/{id}/delete.yaml
 tags:
   - Contacts
 summary: Delete contact by id
